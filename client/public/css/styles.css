@@ -458,7 +458,13 @@
 }
 
 
-
+.github{
+	font-size:10px;
+	position: absolute;
+	right: 48%;
+	bottom: 1%;
+	color: #b3cccc;
+}
 
 
 
