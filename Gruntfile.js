@@ -3,20 +3,20 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     webpack: {
-    someName: {
-    // webpack options
-    entry: "./client/lib/index.js",  // <<< UPDATE THIS
-    output: {
-        path: "asserts/",             // <<< AND THIS
-        filename: "[hash].js",        // <<< AND THIS
-    },
+      someName: {
+        // webpack options
+        entry: "./client/lib/index.js", // <<< UPDATE THIS
+        output: {
+          path: "asserts/", // <<< AND THIS
+          filename: "[hash].js", // <<< AND THIS
+        },
 
-    stats: {
-        // Configure the console output
-        colors: false,
-        modules: true,
-        reasons: true
-    }
+        stats: {
+          // Configure the console output
+          colors: false,
+          modules: true,
+          reasons: true
+        }
       }
     },
     concat: {

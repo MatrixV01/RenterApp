@@ -1,497 +1,362 @@
+/**** GLOBAL NAV BAR ****/
 
-												/**** GLOBAL NAV BAR ****/
-.site{
-	background: url(http://www.closet-connection.net/wp-content/uploads/2015/06/48.jpg);
-	z-index: -1;
-	position: absolute;
-	right: 0;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	overflow: auto;
-	min-width: 1045px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	/*background-color: rgba(0, 0, 0, 0.7);*/
-	box-shadow: inset 0 0 0 1000px rgba(0,2,8,.5);
+.site {
+  background: url(http://www.closet-connection.net/wp-content/uploads/2015/06/48.jpg);
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  min-width: 1045px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-color: rgba(0, 0, 0, 0.7);*/
+  box-shadow: inset 0 0 0 1000px rgba(0, 2, 8, .5);
 }
-
-.bar{
-	 font-family: 'Avenir';
-	 font-size: 34px;
-	 color: black;
-	 border-bottom: 2px solid orange;
-	 margin-left: 10%;
-	 margin-right:9%;
-	 margin-top:2%;
-	 position: static;
+.bar {
+  font-family: 'Avenir';
+  font-size: 34px;
+  color: black;
+  border-bottom: 2px solid orange;
+  margin-left: 10%;
+  margin-right: 9%;
+  margin-top: 2%;
+  position: static;
 }
-
 .bar .signup {
-	top: 2.5%;
-	right: 17%;
-	font-size: 25px;
-	position: absolute;
-	margin-top: 1%;
-	font-weight: bolder;
+  top: 2.5%;
+  right: 17%;
+  font-size: 25px;
+  position: absolute;
+  margin-top: 1%;
+  font-weight: bolder;
 }
-
 .bar .signup:hover {
-    border: none;
-    color: #66ff66;
-    cursor: pointer; cursor: hand;
+  border: none;
+  color: #66ff66;
+  cursor: pointer;
+  cursor: hand;
 }
-
 .bar .signin {
-	top: 2.5%;
-	right: 25%;
-	font-size: 25px;
-	position: absolute;
-	margin-top: 1%;
-	font-weight: bolder;
-
+  top: 2.5%;
+  right: 25%;
+  font-size: 25px;
+  position: absolute;
+  margin-top: 1%;
+  font-weight: bolder;
 }
-
 .bar .signin:hover {
-	 border: none;
-    color: #66ff66;
-    cursor: pointer; cursor: hand;
+  border: none;
+  color: #66ff66;
+  cursor: pointer;
+  cursor: hand;
 }
-
-
 .bar .listItem {
-	top: 2.5%;
-	right: 35%;
-	font-size: 25px;
-	position: absolute;
-	margin-top: 1%;
-	font-weight: bolder;
-
+  top: 2.5%;
+  right: 35%;
+  font-size: 25px;
+  position: absolute;
+  margin-top: 1%;
+  font-weight: bolder;
 }
-
 .bar .listItem:hover {
-    border: none;
-    color: #66ff66;
-    cursor: pointer; cursor: hand;
+  border: none;
+  color: #66ff66;
+  cursor: pointer;
+  cursor: hand;
 }
-
-
 .bar .myProfile {
-
-	font-size: 25px;
-	top: 2.5%;
-	right: 7%;
-	position: absolute;
-	margin-top: 1%;
-	font-weight: bolder;
+  font-size: 25px;
+  top: 2.5%;
+  right: 7%;
+  position: absolute;
+  margin-top: 1%;
+  font-weight: bolder;
 }
-
-
 .bar .myProfile:hover {
-    color: #66ff66;
-    cursor: pointer; cursor: hand;
+  color: #66ff66;
+  cursor: pointer;
+  cursor: hand;
 }
-
 .bar .title {
-	right: 90%;
-	font-size: 50px;
-	font-family: 'Nougatine';
-	position: static;
-	color: white;
-	/*text-shadow: 1px 1px 2px black, 0 0 1em orange, 0 0 0.2em orange;*/
-	font-weight: bold;
-	margin-top: -10px;
+  right: 90%;
+  font-size: 50px;
+  font-family: 'Nougatine';
+  position: static;
+  color: white;
+  /*text-shadow: 1px 1px 2px black, 0 0 1em orange, 0 0 0.2em orange;*/
+  font-weight: bold;
+  margin-top: -10px;
 }
-
 .bar .title:hover {
-	color:#66ff66;
-	cursor: pointer; cursor: hand;
+  color: #66ff66;
+  cursor: pointer;
+  cursor: hand;
 }
-
-
-
 
 /************************************* GLOBAL NAV SEARCH *************************************/
 
-
-
-
-
 .bar .searchbar {
-	font-style: italic;
-	font-size: 23px;
-	font-color: red;
-	top: 2.5%;
-	right: 65%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+  font-style: italic;
+  font-size: 23px;
+  font-color: red;
+  top: 2.5%;
+  right: 65%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
 .bar .zipSearchbar {
-	font-style: italic;
-	font-size: 23px;
-	font-color: red;
-	top: 2.5%;
-	right: 53%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
-
+  font-style: italic;
+  font-size: 23px;
+  font-color: red;
+  top: 2.5%;
+  right: 53%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
 .searchSubmitButton {
-	font-style: italic;
-	font-size: 23px;
-	font-color: red;
-	top: 4.2%;
-	right: 48%;
-	position: absolute;
-	margin-top: 5%;
-	margin: 0;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3; border-right:0px;
-	background: #0095cd;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-	border-radius: 5px 5px 5px 5px;
+  font-style: italic;
+  font-size: 23px;
+  font-color: red;
+  top: 4.2%;
+  right: 48%;
+  position: absolute;
+  margin-top: 5%;
+  margin: 0;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  border-right: 0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top, #00adee, #0078a5);
+  border-radius: 5px 5px 5px 5px;
 }
-
 .searchSubmitButton:hover {
-
-	text-decoration: none;
-	background: #007ead;
-	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
-	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
-
+  text-decoration: none;
+  background: #007ead;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+  background: -moz-linear-gradient(top, #0095cc, #00678e);
 }
-
-.signupContainer{
-
-	font-family: 'Avenir';
-	width: 600px;
-	font-size: 35px;
-	margin: 0 auto;
-	text-align: center;
-	color:  #f2f2f2;
-	text-shadow: 1px 1px black;
-	font-weight: bolder;
-	width: 850px;
-	background-color: rgba(255,255,255,0.4);
-	border-radius: 5px 5px 5px 5px;
-	margin-top: 6%;
-	margin-bottom: 15%;
-	margin-right: 20%;
-	margin-left: 20%;
-
+.signupContainer {
+  font-family: 'Avenir';
+  width: 600px;
+  font-size: 35px;
+  margin: 0 auto;
+  text-align: center;
+  color: #f2f2f2;
+  text-shadow: 1px 1px black;
+  font-weight: bolder;
+  width: 850px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px 5px 5px 5px;
+  margin-top: 6%;
+  margin-bottom: 15%;
+  margin-right: 20%;
+  margin-left: 20%;
 }
-
-.signupContainer .signupButton{
-	font-style: italic;
-	font-size: 35px;
-	font-color: red;
-	top: 60%;
-	right: 48%;
-	position: absolute;
-	margin-top: 20%;
-	margin: 0;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3; border-right:0px;
-	background: #0095cd;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-	border-radius: 5px 5px 5px 5px;
+.signupContainer .signupButton {
+  font-style: italic;
+  font-size: 35px;
+  font-color: red;
+  top: 60%;
+  right: 48%;
+  position: absolute;
+  margin-top: 20%;
+  margin: 0;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  border-right: 0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top, #00adee, #0078a5);
+  border-radius: 5px 5px 5px 5px;
 }
-
-
-
-.signupContainer .userSignup{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 45%;
-	right: 60%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.signupContainer .userSignup {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 45%;
+  right: 60%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.signupContainer .userPassword{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 45%;
-	right: 45%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.signupContainer .userPassword {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 45%;
+  right: 45%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.signupContainer .emailSignup{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 45%;
-	right: 30%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.signupContainer .emailSignup {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 45%;
+  right: 30%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*********************************************  LOGIN PAGE ******************************************/
 
-
-
 .loginUserInput {
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 45%;
-	right: 55%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 45%;
+  right: 55%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
 .loginPassInput {
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 45%;
-	right: 40%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
-
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 45%;
+  right: 40%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
+}
+.loginButton {
+  font-style: italic;
+  font-size: 35px;
+  font-color: red;
+  top: 46.75%;
+  right: 33%;
+  position: absolute;
+  margin-top: 20%;
+  margin: 0;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  border-right: 0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top, #00adee, #0078a5);
+  border-radius: 5px 5px 5px 5px;
+}
+.logoutButton {
+  font-style: italic;
+  font-size: 35px;
+  font-color: red;
+  top: .5%;
+  right: 94.5%;
+  position: absolute;
+  margin-top: 20%;
+  margin: 0;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  border-right: 0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top, #00adee, #0078a5);
+  border-radius: 5px 5px 5px 5px;
 }
 
-.loginButton{
-	font-style: italic;
-	font-size: 35px;
-	font-color: red;
-	top: 46.75%;
-	right: 33%;
-	position: absolute;
-	margin-top: 20%;
-	margin: 0;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3; border-right:0px;
-	background: #0095cd;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-	border-radius: 5px 5px 5px 5px;
-
-}
-
-.logoutButton{
-	font-style: italic;
-	font-size: 35px;
-	font-color: red;
-	top: .5%;
-	right: 94.5%;
-	position: absolute;
-	margin-top: 20%;
-	margin: 0;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3; border-right:0px;
-	background: #0095cd;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-	border-radius: 5px 5px 5px 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				/************************************************  HOME PAGE *******************************************/
+/************************************************  HOME PAGE *******************************************/
 
 #home {
-	background-color: red;
-
+  background-color: red;
 }
-
-.red{
-	color:orange;
+.red {
+  color: orange;
 }
-
-.HomePageMain {
-
-
-}
-
+.HomePageMain {}
 .HomePageGreeting {
-	font-family: 'Avenir';
-	color: #1ad1ff;
-  	text-shadow: 2px 2px black;
-  	font-weight: bolder;
-	font-size: 60px;
-	position: absolute;
-	top: 42%;
-	bottom: 50%;
-	right: 33%;
-	float: center;
-
+  font-family: 'Avenir';
+  color: #1ad1ff;
+  text-shadow: 2px 2px black;
+  font-weight: bolder;
+  font-size: 60px;
+  position: absolute;
+  top: 42%;
+  bottom: 50%;
+  right: 33%;
+  float: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				/************************************************  USER PAGE *******************************************/
+/************************************************  USER PAGE *******************************************/
 
 .site .userPage {
   font-family: 'Avenir';
@@ -503,294 +368,224 @@
   font-weight: bolder;
   margin-top: 3%;
   margin-bottom: auto;
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px 5px 5px 5px;
 }
-
-.userPage .userContainer{
-
-}
-
+.userPage .userContainer {}
 .userPage .userGreeting {
-	font-size: 23px;
-	padding-left: 210px;
-	padding-bottom: 30px;
+  font-size: 23px;
+  padding-left: 210px;
+  padding-bottom: 30px;
 }
-
 .userPage .yourStuffForRent {
-	padding-left: 50px;
-	padding-bottom: 40px;
+  padding-left: 50px;
+  padding-bottom: 40px;
 }
-
 .userPage .yourItemForRent {
-	padding-top: 5px;
-	margin-left: 5%;
-	color: #0099ff;
-	width: 240px;
+  padding-top: 5px;
+  margin-left: 5%;
+  color: #0099ff;
+  width: 240px;
 }
-
 .yourItemForRent:hover {
- 	color: #66ff66;
-    cursor: pointer; cursor: hand;
+  color: #66ff66;
+  cursor: pointer;
+  cursor: hand;
 }
-
-.userPage .stuffYouAreRenting {
-
-}
-
-.userPage .stuffYouAreRenting .itemYouAreRenting {
-
-}
-
-.userPage .stuffOthersAreRentingFromYou {
-
-}
-
-.userPage .stuffOthersAreRentingFromYou .itemBeingRentedFromYou {
-
-}
-
+.userPage .stuffYouAreRenting {}
+.userPage .stuffYouAreRenting .itemYouAreRenting {}
+.userPage .stuffOthersAreRentingFromYou {}
+.userPage .stuffOthersAreRentingFromYou .itemBeingRentedFromYou {}
 .rentalBlock {
   width: 300px;
   height: 80px;
-/*  margin: 0 auto;*/
+  /*  margin: 0 auto;*/
   padding-top: 2px;
   margin-top: 3%;
   margin-bottom: 1%;
   margin-left: 5%;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px 5px 5px 5px;
+}
+.noItemsYet {
+  padding-top: 5px;
+  margin-left: 5%;
+  color: white;
+  width: 400px;
+}
+.rentalTime {
+  padding-top: 1px;
+  margin-left: 8%;
+  color: black;
+  font-size: small;
+  width: 240px;
+}
+
+/************************************************  ITEM PAGE *******************************************/
+
+.itemPage {
+  font-family: 'Avenir';
+  width: 800px;
+  min-height: 750px;
+  margin: 0 auto;
+  padding-top: 20px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px 5px 5px 5px;
+}
+.itemPhoto {
+  border-radius: 5px 5px 5px 5px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.itemDetails {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  font-size: 19px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px 5px 5px 5px;
+  font-family: 'Avenir';
+}
+.itemDetails .itemDescription {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.itemDetails .itemName {
+  padding-top: 2%;
+  font-size: 21px;
+  font-weight: bolder;
+}
+.itemDetails .itemZip {}
+.itemDetails .itemPrice {
+  padding-bottom: 2%;
+}
+.itemPage .bookingDiv {
+  height: 150px;
+  width: 400px;
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px 5px 5px 5px;
+}
+.itemPage .rentItemDiv {}
+.itemPage .bookingCalendarDiv {}
+.bookingDiv .bookItemButton {
+  font-style: italic;
+  font-size: 23px;
+  font-color: red;
+  bottom: auto;
+  right: 46%;
+  position: absolute;
+  margin-top: 7%;
+  font-family: 'Avenir';
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top, #00adee, #0078a5);
+  border-radius: 5px 5px 5px 5px;
+}
+.bookingDiv .bookStartDate {
+  font-style: italic;
+  font-size: 23px;
+  font-color: red;
+  top: auto%;
+  right: 51%;
+  position: absolute;
+  margin-top: 2%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-radius: 5px 5px 5px 5px;
+}
+.bookingDiv .bookEndDate {
+  font-style: italic;
+  font-size: 23px;
+  font-color: red;
+  top: auto;
+  right: 37%;
+  position: absolute;
+  margin-top: 2%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
   border-radius: 5px 5px 5px 5px;
 }
 
-.noItemsYet{
-	padding-top: 5px;
-	margin-left: 5%;
-	color: white;
-	width: 400px;
-}
+/************************************************  RESULTS PAGE *******************************************/
 
-.rentalTime {
-	padding-top: 1px;
-	margin-left: 8%;
-	color: black;
-	font-size: small;
-	width: 240px;
-}
-
-												/************************************************  ITEM PAGE *******************************************/
-
-.itemPage {
-	font-family: 'Avenir';
-	width: 800px;
-	min-height: 750px;
-	margin: 0 auto;
-	padding-top: 20px;
-	margin-top: 3%;
-	margin-bottom: 3%;
-	background-color: rgba(255,255,255,0.5);
-	border-radius: 5px 5px 5px 5px;
-}
-
-.itemPhoto {
-	border-radius: 5px 5px 5px 5px;
-	width: 50%;
-	margin-left: 25%;
-	margin-right: 25%;
-}
-
-.itemDetails {
-	margin-left:25%;
-	margin-right: 25%;
-	text-align: center;
-	font-size: 19px;
-	background-color: rgba(255,255,255,0.75);
-	border-radius: 5px 5px 5px 5px;
-	font-family: 'Avenir';
-
-}
-
-.itemDetails .itemDescription {
- 	padding-left: 3%;
- 	padding-right: 3%;
-}
-
-.itemDetails .itemName {
-	padding-top: 2%;
- 	font-size: 21px;
- 	font-weight: bolder;
-}
-
-.itemDetails .itemZip {
-
-}
-
-
-.itemDetails .itemPrice {
-	padding-bottom: 2%;
-}
-
-.itemPage .bookingDiv {
-	height: 150px;
-	width:400px;
-	margin-left:25%;
-	margin-right: 25%;
-	background-color: rgba(255,255,255,0.75);
-	border-radius: 5px 5px 5px 5px;
-}
-
-.itemPage .rentItemDiv {
-
-}
-
-.itemPage .bookingCalendarDiv {
-
-}
-
-.bookingDiv .bookItemButton {
-	font-style: italic;
-	font-size: 23px;
-	font-color: red;
-	bottom: auto;
-	right: 46%;
-	position: absolute;
-	margin-top: 7%;
-	font-family: 'Avenir';
-	font-size:14px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3;
-	background: #0095cd;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-	border-radius: 5px 5px 5px 5px;
-}
-
-
-.bookingDiv .bookStartDate{
-	font-style: italic;
-	font-size: 23px;
-	font-color: red;
-	top: auto%;
-	right: 51%;
-	position: absolute;
-	margin-top: 2%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3;
-	border-radius: 5px 5px 5px 5px;
-
-}
-
-.bookingDiv .bookEndDate{
-	font-style: italic;
-	font-size: 23px;
-	font-color: red;
-	top: auto;
-	right: 37%;
-	position: absolute;
-	margin-top: 2%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3;
-	border-radius: 5px 5px 5px 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				/************************************************  RESULTS PAGE *******************************************/
-
-.resultsContainer{
-	font-family: 'Avenir';
-	width: 600px;
-	font-size: 20px;
-	margin: 0 auto;
-	text-align: center;
-	color:  black;
-	font-weight: bolder;
-	background-color: rgba(255,255,255,0.4);
-	border-radius: 5px 5px 5px 5px;
-	/*margin-top: 6%;
+.resultsContainer {
+  font-family: 'Avenir';
+  width: 600px;
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px 5px 5px 5px;
+  /*margin-top: 6%;
 	margin-bottom: 15%;
 	margin-right: 20%;
 	margin-left: 20%;*/
-	padding-bottom: 20px;
+  padding-bottom: 20px;
 }
-
 .searchResult {
-	width: 400px;
-	font-size: 20px;
-	margin: 0 auto;
-	text-align: center;
-	color:  black;
-	font-weight: bolder;
-	background-color: rgba(255,255,255,0.4);
-	border-radius: 5px 5px 5px 5px;
-	padding-bottom: 20px;
-	margin-bottom: 10px;
-	cursor: pointer;
+  width: 400px;
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px 5px 5px 5px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
-
-.resultsPhoto{
-	/*border:1px solid black;*/
-	border-radius: 2px 2px 2px 2px;
+.resultsPhoto {
+  /*border:1px solid black;*/
+  border-radius: 2px 2px 2px 2px;
 }
-
 .teal {
-	color: teal;
+  color: teal;
 }
-
 .results {
- 	font-family: 'Avenir';
+  font-family: 'Avenir';
   font-size: 20px;
   margin: 0 auto;
   text-align: center;
   padding: 20px;
   /*border-bottom: 1px solid orange;*/
   color: black;
-	font-weight: bolder;
-	/*text-shadow: 1px 1px 2px black, 0 0 1em teal, 0 0 0.2em teal;*/
+  font-weight: bolder;
+  /*text-shadow: 1px 1px 2px black, 0 0 1em teal, 0 0 0.2em teal;*/
 }
-
 .result {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
-
 a {
   position: relative;
   display: inline-block;
 }
-
 a:link {
-    color: #ffbf00;
-    text-decoration: none;
+  color: #ffbf00;
+  text-decoration: none;
 }
-
 a:visited {
-    color: #ff8080;
+  color: #ff8080;
 }
 
 /*a:hover {
@@ -799,179 +594,164 @@ a:visited {
 }*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-					/************************************************  MAKE NEW LISTING PAGE *******************************************/
-
-
+/************************************************  MAKE NEW LISTING PAGE *******************************************/
 
 .newListingContainer {
-	width: 600px;
-	height: 600px;
-	margin: 0 auto;
-	padding-top: 20px;
-	font-weight: bolder;
-	margin-top: 3%;
-	margin-bottom: 3%;
-	background-color: rgba(255,255,255,0.5);
-	border-radius: 5px 5px 5px 5px;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 20px;
+  font-weight: bolder;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px 5px 5px 5px;
 }
-
 .newListing {
-	width: 600px;
-	height: 600px;
-	font-family: 'Avenir';
-	font-size:14px;
-	margin: 0 auto;
+  width: 600px;
+  height: 600px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  margin: 0 auto;
 }
-
-.newListingTitle{
-	margin: 0 auto;
-	font-family: 'Avenir';
-	text-align: center;
+.newListingTitle {
+  margin: 0 auto;
+  font-family: 'Avenir';
+  text-align: center;
 }
-
 .itemNameInput {
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 25%;
-	right: 44%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 25%;
+  right: 44%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.photoInput{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 30%;
-	right: 44%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.photoInput {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 30%;
+  right: 44%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.newListingInput1{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 35%;
-	right: 44%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.newListingInput1 {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 35%;
+  right: 44%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.newListingInput2{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 40%;
-	right: 44%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.newListingInput2 {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 40%;
+  right: 44%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.priceInput{	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 45%;
-	right: 44%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.priceInput {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 45%;
+  right: 44%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.locationInput{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 50%;
-	right: 44%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.locationInput {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 50%;
+  right: 44%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
-.itemDescriptionInput{
-	font-style: italic;
-	font-size: 28px;
-	font-color: red;
-	top: 55%;
-	right: 44%;
-	position: absolute;
-	margin-top: 1%;
-	width: 130px;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	border:1px solid #0076a3; border-right:0px;
-	border-radius: 5px 5px 5px 5px;
+.itemDescriptionInput {
+  font-style: italic;
+  font-size: 28px;
+  font-color: red;
+  top: 55%;
+  right: 44%;
+  position: absolute;
+  margin-top: 1%;
+  width: 130px;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0px;
+  border-radius: 5px 5px 5px 5px;
 }
-
 .newListingButton {
-	font-style: italic;
-	font-size: 23px;
-	font-color: red;
-	top: 75%;
-	right: 45%;
-	position: absolute;
-	margin-top: 5%;
-	margin: 0;
-	padding: 5px 15px;
-	font-family: 'Avenir';
-	font-size:14px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3; border-right:0px;
-	background: #0095cd;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-	border-radius: 5px 5px 5px 5px;
+  font-style: italic;
+  font-size: 23px;
+  font-color: red;
+  top: 75%;
+  right: 45%;
+  position: absolute;
+  margin-top: 5%;
+  margin: 0;
+  padding: 5px 15px;
+  font-family: 'Avenir';
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  border-right: 0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top, #00adee, #0078a5);
+  border-radius: 5px 5px 5px 5px;
 }

@@ -12,10 +12,10 @@ global.__client = __dirname + '/../client' // NOTE: this isn't hooked up to anyt
 // Assertions
 //
 var chai = require('chai')
-// Option 1: Make the `expect` function available in every test file
+  // Option 1: Make the `expect` function available in every test file
 global.expect = chai.expect
-// Option 2: Make everything should-able
-// global.should = chai.should()
+  // Option 2: Make everything should-able
+  // global.should = chai.should()
 
 
 //
@@ -30,13 +30,13 @@ global.TestHelper = {}
 //
 var express = require('express')
 
-TestHelper.createApp = function (loader) {
+TestHelper.createApp = function(loader) {
   var app = express()
   app.use(require('body-parser').json())
 
-  app.testReady = function () {
+  app.testReady = function() {
     // Log all errors
-    app.use(function (err, req, res, next) {
+    app.use(function(err, req, res, next) {
       console.error("==Error==")
       console.error("   " + err.stack)
       next(err)
@@ -50,8 +50,18 @@ TestHelper.createApp = function (loader) {
 //
 var Bluebird = require('bluebird')
 
-global.before_ = function (f) { before ( Bluebird.coroutine(f) ) }
-global.beforeEach_ = function (f) { beforeEach ( Bluebird.coroutine(f) ) }
-global.it_ = function (description, f) { it ( description, Bluebird.coroutine(f) ) }
-global.xit_ = function (description, f) { xit ( description, f ) }
-global.it_.only = function (description, f) { it.only( description, Bluebird.coroutine(f) ) }
+global.before_ = function(f) {
+  before(Bluebird.coroutine(f))
+}
+global.beforeEach_ = function(f) {
+  beforeEach(Bluebird.coroutine(f))
+}
+global.it_ = function(description, f) {
+  it(description, Bluebird.coroutine(f))
+}
+global.xit_ = function(description, f) {
+  xit(description, f)
+}
+global.it_.only = function(description, f) {
+  it.only(description, Bluebird.coroutine(f))
+}

@@ -1,28 +1,29 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Router = require('react-router');
-import { Link } from 'react-router'
+import {Link} from 'react-router'
 var postRequests = require('../requests/post.js');
 var getRequests = require('../requests/get.js');
 
-
 var HomePage = React.createClass({
 
- getInitialState: function() {
+  getInitialState: function() {
 
-  return {};
+    return {};
 
   },
-
 
   render: function() {
     return (
       <div className="HomePageMain">
         <div className='HomePageGreeting'>
           <div className='animated bounce'>
-              Welcome to <span className="red">RNTR</span>! 
+            Welcome to
+            <span className="red">RNTR</span>!
           </div>
-            <div className="animated bounce"><a target="_blank" href="http://bit.ly/1RCeXpx">visit our github!</a></div>
+          <div className="animated bounce">
+            <a target="_blank" href="http://bit.ly/1RCeXpx">visit our github!</a>
+          </div>
         </div>
       </div>
     );
@@ -30,7 +31,3 @@ var HomePage = React.createClass({
 })
 
 module.exports = HomePage;
-
-
-
-

@@ -4,8 +4,8 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'RNTR_dev'
-    }
-    , seeds: {
+    },
+    seeds: {
       directory: './seeds'
     }
   },

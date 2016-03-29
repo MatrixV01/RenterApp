@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var Link = Router.Link
-var App = require('../App.jsx') 
+var App = require('../App.jsx')
 var postRequests = require('../requests/post.js');
 var getRequests = require('../requests/get.js');
 
@@ -14,7 +14,7 @@ getInitialState: function(){
 
 	 return {
 	 	name: null,
-	
+
 	 	itemsForRent: null,
 
 
@@ -24,7 +24,7 @@ getInitialState: function(){
 
 	 	itemsBeingRentedFromUser: null,
 	 	itemsBeingRentedFromUserObjectID: null
-	 	
+
 	 };
 },
 
@@ -43,7 +43,7 @@ getUserInfo: function(){
 			name: user.user.username
 		})
 	})
-}, 
+},
 
 delistItem: function(){},
 
@@ -56,7 +56,7 @@ getListedItems: function(){
 		})
 		sessionStorage.setItem("itemID", user.items[0].id)
 	})
-	
+
 
 
 },
@@ -93,7 +93,6 @@ getCurrentRentedItems: function(){
 
 },
 
-// item.items[0][0].name
 
 
 handleitemBeingRentedFromYouChange: function(e){
@@ -118,12 +117,12 @@ handleitemsUserIsRentingRedirect: function(itemID){
 	sessionStorage.setItem("itemID", id)
 	if(this.state.itemsUserIsRentingObjectID !== null){ //this itemID is no longer useful. experiment with removing
 			this.props.history.pushState(this.state, 'item');
-	} 
+	}
 },
 
 handlegetCurrentRentedItemsItemRedirect: function(itemID){
 	var id = itemID || this.state.itemsUserIsRentingObjectID;
-	sessionStorage.setItem("itemID", id) 
+	sessionStorage.setItem("itemID", id)
 	this.props.history.pushState(this.state, 'item');
 },
 
@@ -131,7 +130,7 @@ handlegetCurrentRentedItemsItemRedirect: function(itemID){
 
 
 render: function(){
-	var ownedItems = this.state.itemsForRent; 
+	var ownedItems = this.state.itemsForRent;
 	var userIsRenting = this.state.itemsUserIsRenting;
 	var rentedFromUser = this.state.itemsBeingRentedFromUser;
 	var wrangled = this;
@@ -161,8 +160,7 @@ render: function(){
 	}
 
 	var rentFromUserDivs;
-	//generate rentFromUserDivs
-	if(rentedFromUser !== null && rentedFromUser.length>0){
+//generate rentFromUserDivs	if(rentedFromUser !== null && rentedFromUser.length>0){
 	  rentFromUserDivs = rentedFromUser.map(function(item,index){
           return  	<div className='rentalBlock'>
           				<div className='yourItemForRent' onChange={wrangled.handleitemBeingRentedFromYouChange} onClick={function(){wrangled.handlegetCurrentRentedItemsItemRedirect(item.id)}}>{item.name}</div>
@@ -178,14 +176,14 @@ render: function(){
 	return (<div className='userPage'>
 			 <div className='userContainer'>
 			  <div className='userGreeting'> Welcome, <bold>{this.state.name}</bold></div>
-				  <div className='yourStuffForRent'> Your items for rent: 
+				  <div className='yourStuffForRent'> Your items for rent:
 				  {ownedDivs}
 			  </div>
-			  	
+
 			  <div className='yourStuffForRent'>Items you are renting from others:
 			  	{rentFromOthersDivs}
 			  </div>
-			  	  
+
 			  <div className='yourStuffForRent'>Items that others are renting from you:
 			  	{rentFromUserDivs}
 			  </div>

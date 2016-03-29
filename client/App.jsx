@@ -13,41 +13,18 @@ var css = require("../client/public/css/styles.css")
 var Router = require('react-router');
 var Link = Router.Link
 import {render} from 'react-dom'
-import { hashHistory } from 'react-router';
-import { RouterContext, match } from 'react-router';
-// import { history } from 'react-router/lib/HashHistory';
-
-
+import {hashHistory} from 'react-router';
+import {RouterContext, match} from 'react-router';
 
 window.globalStateItemID = window.globalStateItemID || null;
 window.globalStateUserID = window.globalStateUserID || null;
 window.globalStateSessionID = window.globalStateSessionID || null;
 
-
-
-/***********************************************************/
-
-
-
-
-var NavBar = React.createElement(GlobalNavBar, {
-
-	history: {hashHistory}
-
-
-});
-
-
-
-
-/***********************************************************/
-
-
-
+var NavBar = React.createElement(GlobalNavBar, {history: {
+    hashHistory
+  }});
 
 NavBar = ReactDOM.render(NavBar, document.getElementById('globalnavbar'));
-
-
 
 class App extends React.Component {
   render() {

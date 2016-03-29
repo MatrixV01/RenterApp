@@ -12,35 +12,35 @@ var dbMethod = require('../../db/dbMethods.js');
 
 
 //Truncate empties the database tables. It is called once before each test and again after all have run.
-function truncate () {
+function truncate() {
   var tables = ['users', 'items', 'rentals', 'sessions'];
-  return Promise.each(tables, function (table) {
+  return Promise.each(tables, function(table) {
     return knex.raw('truncate table ' + table + ' cascade');
   });
 };
 
-describe ("Server-Side Routing:", function() {
+describe("Server-Side Routing:", function() {
   var app = TestHelper.createApp() //TestHelper is a global object declared in test-helper.js
   app.use('/', routes)
   app.testReady()
 
   beforeEach(function(done) {
     truncate()
-    .then(function(resp){
-      done()
-    })
+      .then(function(resp) {
+        done()
+      })
   })
 
   after(function(done) {
     truncate()
-    .then(function(resp){
-      knex.destroy();
-      done();
-    })
+      .then(function(resp) {
+        knex.destroy();
+        done();
+      })
   })
 
   describe("General", function() {
-    it_ ("should serve an example endpoint", function * (){
+    it_("should serve an example endpoint", function*() {
       yield request(app)
         .get('/test/example_endpoint')
         .expect(200)
@@ -49,7 +49,7 @@ describe ("Server-Side Routing:", function() {
         })
     })
 
-    it_ ("should serve an html page on '/'", function * (){
+    it_("should serve an html page on '/'", function*() {
       yield request(app)
         .get('/')
         .expect(200)
@@ -61,11 +61,11 @@ describe ("Server-Side Routing:", function() {
   })
 
   describe("Users", function() {
-    it_ ("(POST, /signup) : should sign up new users", function * (){
+    it_("(POST, /signup) : should sign up new users", function*() {
       var body = {
-        username : 'MustardForBreakfast',
-        password : 'password',
-        email : 'test@test.com'
+        username: 'MustardForBreakfast',
+        password: 'password',
+        email: 'test@test.com'
       }
 
       yield request(app)
@@ -79,29 +79,29 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.sessionID).to.be.a('string')
         })
 
-    //attempt to sign up with a claimed username
-    yield request(app)
-      .post('/signup')
+      //attempt to sign up with a claimed username
+      yield request(app)
+        .post('/signup')
         .send(body)
         .expect(409)
         .expect(function(response) {
           expect(response.body.status).to.equal('failed');
-          expect(response.body.message).to.equal('That username is taken.'); 
+          expect(response.body.message).to.equal('That username is taken.');
         })
     })
 
-    it_ ("(POST, /login) : should sign in existing users", function * (){
+    it_("(POST, /login) : should sign in existing users", function*() {
       var userID = yield dbMethod.addUser('MustardForBreakfast', 'password', 'example@email.com')
-        .then(function(IDArray){
+        .then(function(IDArray) {
           return IDArray[0];
         })
 
-        var username = 'MustardForBreakfast';
-        var password = 'password';
+      var username = 'MustardForBreakfast';
+      var password = 'password';
 
       var body = {
-        'username' : username,
-        'password' : password
+        'username': username,
+        'password': password
       }
 
       yield request(app)
@@ -121,35 +121,35 @@ describe ("Server-Side Routing:", function() {
       var otherPassword = 'password';
 
       var unregBody = {
-        'username' : otherUsername,
-        'password' : otherPassword
+        'username': otherUsername,
+        'password': otherPassword
       }
 
       yield request(app)
         .post('/login')
-          .send(unregBody)
-          .expect(400)
-          .expect(function(response) {
-            expect(response.body.status).to.equal('failed');
-            expect(response.body.message).to.equal('user not found.'); 
-          })
+        .send(unregBody)
+        .expect(400)
+        .expect(function(response) {
+          expect(response.body.status).to.equal('failed');
+          expect(response.body.message).to.equal('user not found.');
+        })
     })
 
-    it_ ("(DELETE, /users) : should delete a user", function * (){
+    it_("(DELETE, /users) : should delete a user", function*() {
       var userID = yield dbMethod.addUser('MustardForBreakfast', 'password', 'example@email.com')
-        .then(function(IDArray){
+        .then(function(IDArray) {
           return IDArray[0];
         })
 
       var user = {
-        username : 'MustardForBreakfast',
-        'userID' : userID,
-        password : 'password'
+        username: 'MustardForBreakfast',
+        'userID': userID,
+        password: 'password'
       }
 
       var body = {
-        'user' : user,
-        'message' : 'here is a user.'
+        'user': user,
+        'message': 'here is a user.'
       }
 
       yield request(app)
@@ -171,16 +171,16 @@ describe ("Server-Side Routing:", function() {
         })
     })
 
-    it_ ("(POST, /users) : should retrieve information about a single user", function * (){
+    it_("(POST, /users) : should retrieve information about a single user", function*() {
       //add a user
       var userID = yield dbMethod.addUser('MustardForBreakfast', 'password', 'example@email.com')
-        .then(function(IDArray){
+        .then(function(IDArray) {
           return IDArray[0];
         })
 
       var body = {
-        'userID' : userID,
-        'message' : 'here is a user.'
+        'userID': userID,
+        'message': 'here is a user.'
       }
 
       yield request(app)
@@ -194,10 +194,10 @@ describe ("Server-Side Routing:", function() {
         })
     })
 
-    it_ ("(POST, /logout) : should log a user out", function * (){
+    it_("(POST, /logout) : should log a user out", function*() {
       //add a user
       var userID = yield dbMethod.addUser('MustardForBreakfast', 'password', 'example@email.com')
-        .then(function(IDArray){
+        .then(function(IDArray) {
           return IDArray[0];
         })
 
@@ -205,8 +205,8 @@ describe ("Server-Side Routing:", function() {
       var password = 'password';
 
       var loginBody = {
-        'username' : username,
-        'password' : password
+        'username': username,
+        'password': password
       }
 
       //log that user in
@@ -214,14 +214,16 @@ describe ("Server-Side Routing:", function() {
       yield request(app)
         .post('/login')
         .send(loginBody)
-        .expect(function(resp){
+        .expect(function(resp) {
           sessionID = resp.body.sessionID;
         })
 
       //simulated cookie
       var body = {
-        'userID' : userID,
-        'cookie' : {'sessionId':sessionID}
+        'userID': userID,
+        'cookie': {
+          'sessionId': sessionID
+        }
       }
 
       yield request(app)
@@ -236,11 +238,11 @@ describe ("Server-Side Routing:", function() {
   })
 
   describe("Items", function() {
-    
-    it_ ("(POST, /items) : should create a new item", function * (){
+
+    it_("(POST, /items) : should create a new item", function*() {
       //add a user
       var userID = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -259,8 +261,8 @@ describe ("Server-Side Routing:", function() {
       }
 
       var body = {
-        'item' : itemObj,
-        'message' : 'here is an item.'
+        'item': itemObj,
+        'message': 'here is an item.'
       }
 
       yield request(app)
@@ -273,19 +275,19 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.message).to.equal('item added.')
           expect(response.body.item.name).to.equal('Lawn Mower')
         })
-    }) 
+    })
 
-    it_ ("(POST, /items/search) : should get searched items by name and zipcode", function * (){
+    it_("(POST, /items/search) : should get searched items by name and zipcode", function*() {
       var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
       var userTwo = yield dbMethod.addUser('Duckworth', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
       var userThree = yield dbMethod.addUser('Alphred', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -346,8 +348,8 @@ describe ("Server-Side Routing:", function() {
       yield dbMethod.addItem(itemFour);
 
       var body = {
-        searchTerm : 'Lawn Mower',
-        zipCode : 10507
+        searchTerm: 'Lawn Mower',
+        zipCode: 10507
       }
 
       yield request(app)
@@ -361,7 +363,7 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.items.length).to.equal(3);
 
           var names = [];
-          response.body.items.forEach(function(x){
+          response.body.items.forEach(function(x) {
             names.push(x.name);
           })
           expect(names).to.contain('Lawn Mower');
@@ -369,9 +371,9 @@ describe ("Server-Side Routing:", function() {
         })
     })
 
-    it_ ("(POST, /items/id) : should get an item by itemID", function *(){
+    it_("(POST, /items/id) : should get an item by itemID", function*() {
       var user = yield dbMethod.addUser('Alphred', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -391,12 +393,12 @@ describe ("Server-Side Routing:", function() {
       }
 
       var itemID = yield dbMethod.addItem(item)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var body = {
-        'itemID' : itemID
+        'itemID': itemID
       }
 
       yield request(app)
@@ -410,9 +412,9 @@ describe ("Server-Side Routing:", function() {
 
     })
 
-    it_ ("(DELETE, /items) : should delete an item", function * (){
+    it_("(DELETE, /items) : should delete an item", function*() {
       var user = yield dbMethod.addUser('Alphred', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -431,14 +433,14 @@ describe ("Server-Side Routing:", function() {
       }
 
       var itemID = yield dbMethod.addItem(item)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var body = {
-        'item_id' : itemID,
-        'user_id' : user,
-        'password' : 'password'
+        'item_id': itemID,
+        'user_id': user,
+        'password': 'password'
       }
 
       yield request(app)
@@ -450,15 +452,15 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.message).to.equal('item deleted.')
           expect(response.body.itemID).to.equal(itemID)
         })
-    }) 
+    })
 
-    it_ ("(POST, /items/user) : should get items that a user owns", function * (){
+    it_("(POST, /items/user) : should get items that a user owns", function*() {
       var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
       var userTwo = yield dbMethod.addUser('Duckworth', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -519,8 +521,8 @@ describe ("Server-Side Routing:", function() {
       yield dbMethod.addItem(itemFour);
 
       var body = {
-        user_id : userOne,
-        message : 'here is a user.'
+        user_id: userOne,
+        message: 'here is a user.'
       }
 
       yield request(app)
@@ -533,7 +535,7 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.items).to.be.a('array');
 
           var itemNames = [];
-          response.body.items.forEach(function(x){
+          response.body.items.forEach(function(x) {
             itemNames.push(x.name)
           })
 
@@ -542,15 +544,15 @@ describe ("Server-Side Routing:", function() {
           expect(itemNames).to.contain('An entire army of opossums')
           expect(itemNames).not.to.contain('Fire Hydrant')
         })
-    })   
+    })
 
-    it_ ("(POST, /items/user/is_renting) : should get items a user is renting", function * (){
+    it_("(POST, /items/user/is_renting) : should get items a user is renting", function*() {
       var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
       var userTwo = yield dbMethod.addUser('Duckworth', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -606,55 +608,55 @@ describe ("Server-Side Routing:", function() {
 
       //add each item
       var itemIdOne = yield dbMethod.addItem(itemOne)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var itemIdTwo = yield dbMethod.addItem(itemTwo)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var itemIdThree = yield dbMethod.addItem(itemThree)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var itemIdFour = yield dbMethod.addItem(itemFour)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var rentalOne = {
-        'user_id' : userTwo,
-        'item_id' : itemIdOne,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdOne,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       var rentalTwo = {
-        'user_id' : userTwo,
-        'item_id' : itemIdTwo,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdTwo,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       var rentalThree = {
-        'user_id' : userTwo,
-        'item_id' : itemIdThree,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdThree,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       var rentalFour = {
-        'user_id' : userOne,
-        'item_id' : itemIdFour,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userOne,
+        'item_id': itemIdFour,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       yield dbMethod.addRental(rentalOne);
@@ -663,8 +665,8 @@ describe ("Server-Side Routing:", function() {
       yield dbMethod.addRental(rentalFour);
 
       var body = {
-        userID : userTwo,
-        message : 'here is a user.'
+        userID: userTwo,
+        message: 'here is a user.'
       }
 
       yield request(app)
@@ -679,7 +681,7 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.rentalsWithItems[0].item).to.exist;
 
           var itemNames = [];
-          response.body.rentalsWithItems.forEach(function(x){
+          response.body.rentalsWithItems.forEach(function(x) {
             itemNames.push(x.item.name)
           })
 
@@ -690,13 +692,13 @@ describe ("Server-Side Routing:", function() {
         })
     })
 
-    it_ ("(POST, /items/user/rented_from) : should get items being rented from a user", function * (){
+    it_("(POST, /items/user/rented_from) : should get items being rented from a user", function*() {
       var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
       var userTwo = yield dbMethod.addUser('Duckworth', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -752,55 +754,55 @@ describe ("Server-Side Routing:", function() {
 
       //add each item
       var itemIdOne = yield dbMethod.addItem(itemOne)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var itemIdTwo = yield dbMethod.addItem(itemTwo)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var itemIdThree = yield dbMethod.addItem(itemThree)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var itemIdFour = yield dbMethod.addItem(itemFour)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var rentalOne = {
-        'user_id' : userTwo,
-        'item_id' : itemIdOne,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdOne,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       var rentalTwo = {
-        'user_id' : userTwo,
-        'item_id' : itemIdTwo,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdTwo,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       var rentalThree = {
-        'user_id' : userTwo,
-        'item_id' : itemIdThree,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdThree,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       var rentalFour = {
-        'user_id' : userOne,
-        'item_id' : itemIdFour,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userOne,
+        'item_id': itemIdFour,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       yield dbMethod.addRental(rentalOne);
@@ -809,8 +811,8 @@ describe ("Server-Side Routing:", function() {
       yield dbMethod.addRental(rentalFour);
 
       var body = {
-        owner : userOne,
-        message : 'here is a user.'
+        owner: userOne,
+        message: 'here is a user.'
       }
 
       yield request(app)
@@ -825,8 +827,8 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.itemsWithRentals[0].item_owner).to.exist;
 
           var rentedNames = [];
-          response.body.itemsWithRentals.forEach(function(x){
-            if (x.rentals.length > 0){
+          response.body.itemsWithRentals.forEach(function(x) {
+            if (x.rentals.length > 0) {
               rentedNames.push(x.name)
             }
           })
@@ -836,17 +838,17 @@ describe ("Server-Side Routing:", function() {
           expect(rentedNames).not.to.contain('An entire army of opossums')
           expect(rentedNames).not.to.contain('Fire Hydrant')
         })
-    }) 
+    })
   })
 
   describe("Rentals", function() {
-    it_ ("(POST, /bookings) : should make a new booking if no conflicts", function * (){
+    it_("(POST, /bookings) : should make a new booking if no conflicts", function*() {
       var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
       var userTwo = yield dbMethod.addUser('Duckworth', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -877,43 +879,43 @@ describe ("Server-Side Routing:", function() {
 
       //add each item
       var itemID = yield dbMethod.addItem(item)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var rentalOne = {
-        'user_id' : userTwo,
-        'item_id' : itemID,
-        'date_start' : rentOneStart,
-        'date_end' : rentOneEnd,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemID,
+        'date_start': rentOneStart,
+        'date_end': rentOneEnd,
+        'is_confirmed': 'true'
       }
 
       var rentalTwo = {
-        'user_id' : userTwo,
-        'item_id' : itemID,
-        'date_start' : rentTwoStart,
-        'date_end' : rentTwoEnd,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemID,
+        'date_start': rentTwoStart,
+        'date_end': rentTwoEnd,
+        'is_confirmed': 'true'
       }
 
       var rentalThree = {
-        'user_id' : userTwo,
-        'item_id' : itemID,
-        'date_start' : rentThreeStart,
-        'date_end' : rentThreeEnd,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemID,
+        'date_start': rentThreeStart,
+        'date_end': rentThreeEnd,
+        'is_confirmed': 'true'
       }
 
       yield dbMethod.addRental(rentalOne);
 
       var rentalTwoBody = {
-        rental : rentalTwo,
-        message : 'this rental should not conflict.'
+        rental: rentalTwo,
+        message: 'this rental should not conflict.'
       }
 
       var rentalThreeBody = {
-        rental : rentalThree,
+        rental: rentalThree,
         message: 'this rental SHOULD conflict.'
       }
 
@@ -937,13 +939,13 @@ describe ("Server-Side Routing:", function() {
         })
     })
 
-    it_ ("(POST, /bookings/item) : should get bookings for a given item", function * (){
+    it_("(POST, /bookings/item) : should get bookings for a given item", function*() {
       var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
       var userTwo = yield dbMethod.addUser('Duckworth', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -983,37 +985,37 @@ describe ("Server-Side Routing:", function() {
 
       //add each item
       var itemIdOne = yield dbMethod.addItem(itemOne)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var itemIdTwo = yield dbMethod.addItem(itemTwo)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var rentalOne = {
-        'user_id' : userTwo,
-        'item_id' : itemIdOne,
-        'date_start' : rentOneStart,
-        'date_end' : rentOneEnd,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdOne,
+        'date_start': rentOneStart,
+        'date_end': rentOneEnd,
+        'is_confirmed': 'true'
       }
 
       var rentalTwo = {
-        'user_id' : userTwo,
-        'item_id' : itemIdOne,
-        'date_start' : rentTwoStart,
-        'date_end' : rentTwoEnd,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdOne,
+        'date_start': rentTwoStart,
+        'date_end': rentTwoEnd,
+        'is_confirmed': 'true'
       }
 
       var rentalThree = {
-        'user_id' : userTwo,
-        'item_id' : itemIdTwo,
-        'date_start' : rentTwoStart,
-        'date_end' : rentTwoEnd,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdTwo,
+        'date_start': rentTwoStart,
+        'date_end': rentTwoEnd,
+        'is_confirmed': 'true'
       }
 
       yield dbMethod.addRental(rentalOne);
@@ -1021,8 +1023,8 @@ describe ("Server-Side Routing:", function() {
       yield dbMethod.addRental(rentalThree);
 
       var body = {
-        itemID : itemIdOne,
-        message : 'here is an item - show me the rentals for it.'
+        itemID: itemIdOne,
+        message: 'here is an item - show me the rentals for it.'
       }
 
       yield request(app)
@@ -1037,7 +1039,7 @@ describe ("Server-Side Routing:", function() {
           expect(response.body.rentals[0].user_id).to.exist;
 
           var itemIDs = [];
-          response.body.rentals.forEach(function(x){
+          response.body.rentals.forEach(function(x) {
             itemIDs.push(x.item_id);
           })
 
@@ -1046,13 +1048,13 @@ describe ("Server-Side Routing:", function() {
         })
     })
 
-    it_ ("(DELETE, /bookings) : should delete a booking", function * (){
-    var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+    it_("(DELETE, /bookings) : should delete a booking", function*() {
+      var userOne = yield dbMethod.addUser('MustardForBreakfast', 'password', 'mr.email@mr.email')
+        .then(function(idArray) {
           return idArray[0];
         })
       var userTwo = yield dbMethod.addUser('Duckworth', 'password', 'mr.email@mr.email')
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
@@ -1072,26 +1074,26 @@ describe ("Server-Side Routing:", function() {
       }
 
       var itemIdOne = yield dbMethod.addItem(itemOne)
-        .then(function(idArray){
+        .then(function(idArray) {
           return idArray[0];
         })
 
       var rentalOne = {
-        'user_id' : userTwo,
-        'item_id' : itemIdOne,
-        'date_start' : start,
-        'date_end' : end,
-        'is_confirmed' : 'true'
+        'user_id': userTwo,
+        'item_id': itemIdOne,
+        'date_start': start,
+        'date_end': end,
+        'is_confirmed': 'true'
       }
 
       var rentalID = yield dbMethod.addRental(rentalOne)
-        .then(function(rentalIDArray){
+        .then(function(rentalIDArray) {
           return rentalIDArray[0];
         })
 
       var body = {
-        'rentalID' : rentalID,
-        message : 'here is a rental. Please delete it.'
+        'rentalID': rentalID,
+        message: 'here is a rental. Please delete it.'
       }
 
       yield request(app)
@@ -1106,7 +1108,7 @@ describe ("Server-Side Routing:", function() {
 
       //rental should not be there anymore if we look for it.
       yield dbMethod.getRentalByRentalID(rentalID)
-        .then(function(bool){
+        .then(function(bool) {
           expect(bool).to.equal(false);
         })
     })

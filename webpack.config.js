@@ -7,9 +7,9 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 new webpack.ProvidePlugin({
-    $: "jquery",
-    jQuery: "jquery",
-    "window.jQuery": "jquery"
+  $: "jquery",
+  jQuery: "jquery",
+  "window.jQuery": "jquery"
 })
 
 module.exports = {
@@ -20,29 +20,27 @@ module.exports = {
     filename: "index_bundle.jsx"
   },
   module: {
-    loaders: [
-    { 
-    test: /\.jsx$|.js$/, 
-    exclude: /node_modules/, 
-    loader: "babel", 
-    query:
-      {
-        presets:['es2015','react']
+    loaders: [{
+      test: /\.jsx$|.js$/,
+      exclude: /node_modules/,
+      loader: "babel",
+      query: {
+        presets: ['es2015', 'react']
       }
-},
-       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.png$/, loader: "url-loader?limit=100000" },
-      { test: /\.jpg$/, loader: "file-loader" }
-    ]
+    }, {
+      test: /\.css$/,
+      loader: "style-loader!css-loader"
+    }, {
+      test: /\.png$/,
+      loader: "url-loader?limit=100000"
+    }, {
+      test: /\.jpg$/,
+      loader: "file-loader"
+    }]
   },
   plugins: [HTMLWebpackPluginConfig, new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': '"production"'
-      }
-    })]
+    'process.env': {
+      'NODE_ENV': '"production"'
+    }
+  })]
 };
-
-
-
-
-
