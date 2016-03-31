@@ -168,9 +168,9 @@ render: function(){
           				<div className='rentalTime'>Rental end: {item.rentals[0].date_end.slice(0,10)}</div>
           			</div>
         });
-	} else {
-		rentFromUserDivs = <div className='noItemsYet'>Nobody is currently renting from you.</div>
-	}
+	// } else {
+	// 	rentFromUserDivs = <div className='noItemsYet'>Nobody is currently renting from you.</div>
+	// }
 
 
 	return (<div className='userPage'>

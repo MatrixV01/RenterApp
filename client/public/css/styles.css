@@ -28,7 +28,7 @@
 }
 .bar .signup {
   top: 2.5%;
-  right: 17%;
+  right: 19%;
   font-size: 25px;
   position: absolute;
   margin-top: 1%;
@@ -42,7 +42,7 @@
 }
 .bar .signin {
   top: 2.5%;
-  right: 25%;
+  right: 27%;
   font-size: 25px;
   position: absolute;
   margin-top: 1%;
@@ -71,7 +71,7 @@
 .bar .myProfile {
   font-size: 25px;
   top: 2.5%;
-  right: 7%;
+  right: 9%;
   position: absolute;
   margin-top: 1%;
   font-weight: bolder;
